@@ -1,6 +1,8 @@
 // import TestVue1 from '@/views/TestVue1.vue';
 import {createRouter, createWebHistory} from 'vue-router'
 import { practiceRouter } from './practiceRouter';
+import { memberRouter } from './memberRouter';
+import { productRouter } from './productRouter';
 const routes = [
     // {
     //     path: '/test1',
@@ -8,6 +10,8 @@ const routes = [
     //     component: TestVue1
     // },
     ...practiceRouter,
+    ...memberRouter,
+    ...productRouter
 ]
 
 const router = createRouter(

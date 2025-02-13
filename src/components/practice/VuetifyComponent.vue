@@ -72,8 +72,8 @@
                 정말 취소 하시겠습니까?
             </v-card-title>
             <v-card-actions>
-                <v-btn color="primary">ㅇㅇ</v-btn>
-                <v-btn color="secondary">ㄴㄴ</v-btn>
+                <v-btn color="primary" @click="resetModal">ㅇㅇ</v-btn>
+                <v-btn color="secondary" @click="resetModal">ㄴㄴ</v-btn>
             </v-card-actions>
         </v-card>
     </v-dialog>
@@ -102,11 +102,15 @@ export default{
         },
         //새로고침 없음(spa: single page application)
         spaRouting1(){
+            //      아래  url로 내가 가겠다는 뜻! $.router.push 같은것 정도는 외우자!
             this.$router.push("/practice/modeling");
         },
         //새로고침 없음:이름 기반 라우팅
         spaRouting2(){
             this.$router.push({name: "ModelingComponent"});
+        },
+        resetModal(){
+            this.trueOrfalse=false;
         }
     },
 }
