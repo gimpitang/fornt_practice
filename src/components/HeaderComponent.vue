@@ -14,7 +14,7 @@
                     <v-btn :to="{path:'/'}">javashop</v-btn>
                 </v-col>
                 <v-col class="d-flex justify-end">
-                    <v-btn v-if="isLogin" :to="{path:'/order/cart'}">장바구니</v-btn>
+                    <v-btn v-if="isLogin" :to="{path:'/order/cart'}">장바구니 {{ getTotalQuantity }}</v-btn>
                     <v-btn :to="{path:'/product/list'}">상품목록</v-btn>
                     <v-btn v-if="isLogin" :to="{path:'/member/mypage'}">MyPage</v-btn>
                     <v-btn v-if="!isLogin" :to="{path:'/member/create'}">회원가입</v-btn>
@@ -35,6 +35,13 @@ export default{
             isLogin: false,
         }
     },
+    computed:{
+        getTotalQuantity(){
+            return this.$store.getters.getTotalQuantity;
+        }
+          
+    }
+    ,
     created(){
         const token = localStorage.getItem('token');
         if(token){
